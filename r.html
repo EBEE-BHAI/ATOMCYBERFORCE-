@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>AtomCyberForce</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+/* Body Styling */
+body {
+    font-family: 'Audiowide', sans-serif;
+    background: #000;
+    color: #ff0066;
+    margin: 0;
+    padding: 0;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+}
+
+html, body {
+    touch-action: pan-y; /* Prevent pinch-zoom and horizontal swiping */
+}
+
+/* Rotating Background Box */
+.rotating-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 0, 102, 0.2);
+    z-index: 0;
+    animation: rotateBox 5s infinite ease-in-out;
+}
+
+@keyframes rotateBox {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(0.5);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* Faded Additional Boxes */
+.faded-box {
+    position: absolute;
+    background: rgba(255, 0, 102, 0.1);
+    border: 1px solid rgba(255, 0, 102, 0.3);
+    width: 200px;
+    height: 200px;
+    animation: fade 10s infinite ease-in-out;
+}
+
+.faded-box:nth-child(1) { top: 10%; left: 20%; }
+.faded-box:nth-child(2) { top: 50%; left: 60%; }
+.faded-box:nth-child(3) { top: 30%; left: 40%; }
+.faded-box:nth-child(4) { top: 70%; left: 10%; }
+.faded-box:nth-child(5) { top: 15%; left: 75%; }
+.faded-box:nth-child(6) { top: 80%; left: 50%; }
+.faded-box:nth-child(7) { top: 60%; left: 80%; }
+.faded-box:nth-child(8) { top: 20%; left: 5%; }
+.faded-box:nth-child(9) { top: 80%; left: 20%; }
+
+@keyframes fade {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.2;
+    }
+}
+
+/* Main Container */
+.container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Heading */
+h1 {
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    color: #ff0066;
+    text-shadow: 0 0 10px #ff0066, 0 0 20px rgba(255, 0, 100, 0.8);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066, 0 0 30px #ff0066;
+    }
+    50% {
+        opacity: 0.6;
+        text-shadow: none;
+    }
+}
+
+/* Subheadings for sections */
+h2 {
+    font-size: 1.5rem;
+    color: #00c8ff;
+    text-shadow: 0 0 10px #00c8ff, 0 0 20px rgba(0, 200, 255, 0.8);
+    margin: 20px 0;
+    text-transform: uppercase;
+}
+
+/* Founder Styling */
+.founder-section h2 {
+    font-size: 2rem;
+    color: #ffcc00;
+    text-shadow: 0 0 15px rgba(255, 204, 0, 0.8);
+    animation: neonGlow 3s infinite ease-in-out;
+}
+
+@keyframes neonGlow {
+    0% {
+        text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+    }
+    50% {
+        text-shadow: 0 0 40px #ffcc00, 0 0 60px #ffcc00;
+    }
+    100% {
+        text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00;
+    }
+}
+
+/* Team Members Styling */
+.team-section .team-member {
+    font-size: 1.3rem;
+    color: #ffcc00;
+    text-shadow: 0 0 15px rgba(255, 204, 0, 0.8);
+    animation: bounceText 4s infinite alternate;
+    margin-bottom: 30px;
+}
+
+@keyframes bounceText {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.1);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Info Text Styling */
+.info {
+    font-size: 1rem;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Join Us Box */
+.join-us-box {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ff0066;
+    color: #000;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    box-shadow: 0 0 20px #ff0066;
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+.join-us-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px #ff0066;
+}
+
+/* Project Boxes Layout */
+.project-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.project-box {
+    width: 100%;
+    height: 120px;
+    background-color: #ff0066;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff0066;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+.project-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px #ff0066;
+}
+
+/* Circular Image Styling */
+.image-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid;
+    animation: borderMove 5s infinite linear;
+}
+
+.circle-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Border Animation */
+@keyframes borderMove {
+    0% {
+        border-color: #ff0066 #00ccff #00ff66 #ffcc00;
+    }
+    25% {
+        border-color: #00ccff #00ff66 #ffcc00 #ff0066;
+    }
+    50% {
+        border-color: #00ff66 #ffcc00 #ff0066 #00ccff;
+    }
+    75% {
+        border-color: #ffcc00 #ff0066 #00ccff #00ff66;
+    }
+    100% {
+        border-color: #ff0066 #00ccff #00ff66 #ffcc00;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .info {
+        font-size: 0.9rem;
+    }
+
+    .join-us-box {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+
+    .project-box {
+        height: 100px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <!-- Rotating Background Box -->
+    <div class="rotating-box"></div>
+    
+    <!-- Faded Additional Boxes -->
+    <div class="faded-box"></div>
+    <div class="faded-box"></div>
+    <div class="faded-box"></div>
+    <div class="faded-box"></div>
+    <div class="faded-box"></div>
+    <div class="faded-box"></div>
+    <div class="faded-box"></div>
+    <div class="faded-box"></div>
+    <div class="faded-box"></div>
+ 
+    <div class="image-container">
+    <img src="laxxy.jpg" alt="Circular Image" class="circle-image">
+</div>
+    <div class="container">
+       
+        <h1>AtomCyberForce 🇵🇸</h1>
+
+        <!-- Join Us Box -->
+        <div class="join-us-box" onclick="window.location.href='https://whatsapp.com/channel/0029VaIcjcVEwEjw095dWf0I'">
+            Join Us And Be A Part
+        </div>
+
+        <div class="founder-section">
+            <h2>Founder</h2>
+            <p class="info">Syed Ebad Muhammad (EBEE-BHAI) Is The Founder Of AtomCyberForce A 16-Year-Old Doing Things Beyond Expectations, renowned for his exceptional skills in ethical hacking and digital marketing.</p>
+        </div>
+
+        <div class="team-section">
+            <h2>Meet Our Beloved Team</h2>
+            <br>
+            <div class="team-member">AFFI BHAI:-<br>AFFI BHAI have vast experience in the digital field, recognized for innovative strategies and impactful solutions.</div>
+            <br>
+            <div class="team-member">SAHØ:-<br>cybersecurity enthusiast with a deep understanding of online security measures and a passion for teaching.</div>
+            <br>
+            <div class="team-member">UZAIR:-<br>skilled content manager known for crafting engaging content and managing community interactions effectively.</div>
+        </div>
+
+        <h2>About AtomCyberForce (ACF)</h2>
+        <p class="info">Founded by EBEE BHAI, AtomCyberForce is a leading cybersecurity organization dedicated to helping individuals from lower socioeconomic backgrounds harness the power of technology.</p>
+
+        <h2>Latest Projects</h2>
+        <div class="project-boxes">
+            <div class="project-box" onclick="window.location.href='#'">Email Extractor</div>
+            <div class="project-box" onclick="window.location.href='#'">EBEE TOOLKIT</div>
+            <div class="project-box" onclick="window.location.href='#'">EBEE COURSES MART</div>
+            <div class="project-box" onclick="window.location.href='#'">CryptoMiner</div>
+            <div class="project-box" onclick="window.location.href='#'">SEO Analyzer</div>
+            <div class="project-box" onclick="window.location.href='#'">Web Scraper</div>
+        </div>
+
+        <footer>
+            <p>© 2024 AtomCyberForce. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
